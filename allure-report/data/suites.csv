@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","9838","test invalid login","chromium","Tue Feb 24 21:31:08 EET 2026","passed","Tue Feb 24 21:31:18 EET 2026","login test cases","firstscript.spec.ts","",""
+"","9696","test valid login","chromium","Tue Feb 24 21:31:08 EET 2026","passed","Tue Feb 24 21:31:17 EET 2026","login test cases","firstscript.spec.ts","",""
