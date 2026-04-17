@@ -19,7 +19,7 @@ await page.close();
 });
 
 
-test.only('test select paragraph using keyboard action', async ({ page }) => {
+test('test select paragraph using keyboard action', async ({ page }) => {
 
     await page.setViewportSize({ width: 1920, height: 1080 });
     await page.goto('https://practice.expandtesting.com/login');
