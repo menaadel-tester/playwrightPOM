@@ -12,39 +12,40 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 
-const RPConfig = {
+//const RPConfig = {
 
-endpoint: "https://demo.reportportal.io/api/v1",
+//endpoint: "https://demo.reportportal.io/api/v1",
 
-apiKey: "mykey_wo7ziRLSQsCxmppYd53GxN25SzFkOSUkJCBDqqQ4owOYVFqkJ4NZkPSf-vZzaJmi",
+//apiKey: "mykey_wo7ziRLSQsCxmppYd53GxN25SzFkOSUkJCBDqqQ4owOYVFqkJ4NZkPSf-vZzaJmi",
 
-project: "menaadel-tester_personal",
+//project: "menaadel-tester_personal",
 
-launch: "Launch name",
+///launch: "Launch name",
 
-description: "My awesome launch",
+//description: "My awesome launch",
 
-attributes: [
+//attributes: [
 
-{
+//{
 
-key: "attributeKey",
+//key: "attributeKey",
 
-value: "attrbiuteValue",
+//value: "attrbiuteValue",
 
-},
+//},
 
-{
+//{
 
-value: "anotherAttrbiuteValue",
+//value: "anotherAttrbiuteValue",
 
-},
+//},
 
-],
+//],
 
-mode: 'DEFAULT',
+//mode: 'DEFAULT',
 
-}
+//}
+
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
@@ -57,28 +58,28 @@ export default defineConfig({
  // workers: process.env.CI ? 1 : undefined,
  workers: 2, // it means all test cases will be executed in one worker (one thread ) so it will be executed sequentially not parallel
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['allure-playwright'], ['@reportportal/agent-js-playwright', RPConfig]],
+ //reporter: [['allure-playwright'], ['@reportportal/agent-js-playwright', RPConfig], ['html', { open: 'always' }]],
 
   // expect time out should be under the reporter 
 
 
   expect:{
 
-    timeout: 7000 , //default time out for the asserations 
+       // timeout: 100000 , //default time out for the asserations 
 
   },
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-   baseURL: 'https://opensource-demo.orangehrmlive.com',
+   //baseURL: 'https://opensource-demo.orangehrmlive.com',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on',
     screenshot: 'only-on-failure',
     video:'retain-on-failure',
-    actionTimeout: 6000, // it means any action should be completed in 6 seconds like click , fill .... etc
-
+    //actionTimeout: 100000, // it means any action should be completed in 100 seconds like click , fill .... etc
+    //storageState:'storagestate.ts'
   },
 
   /* Configure projects for major browsers */
@@ -89,6 +90,7 @@ export default defineConfig({
       ...devices['Desktop Chrome'],
       viewport: { width: 1920, height: 1080 },
       headless: false,
+      trace: 'on',
     },
   }
 
@@ -121,12 +123,12 @@ export default defineConfig({
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
-  ],
+ // ],
 
   /* Run your local dev server before starting the tests */
   // webServer: {
   //   command: 'npm run start',
   //   url: 'http://localhost:3000',
   //   reuseExistingServer: !process.env.CI,
-  // },
+],
 });

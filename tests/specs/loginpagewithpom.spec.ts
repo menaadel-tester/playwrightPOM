@@ -28,15 +28,25 @@ test.describe.configure({mode:'parallel'}); // it means all test cases in descri
 test.describe('login test',()=>{
 
 
-    test('test valid login',async({page})=>{
+    test('login test valid login',{tag:['@logintest','@smoketest'] ,
 
+    annotation: {
+    type: 'smoke test ',
+    description: 'smoke test for login functionality',
+  },
+    } 
+        
+        
+        ,async ({ page }) => {
+        
+        
 
-    
-       await  pomanager.getLoginPage().login(tsData.username,tsData.password);
-       await  pomanager.getHomePage().verifyadmin_iconisdisplayed()
+    await pomanager.getLoginPage().login(tsData.username, tsData.password);
 
+    await pomanager.getHomePage().verifyadmin_iconisdisplayed();
 
-    });
+  }
+);
 
      [
 
@@ -46,7 +56,7 @@ test.describe('login test',()=>{
 
         ].forEach(({username,password,testType})=>{
 
-             test(`test invalid login for ${testType}`, async({page})=>{
+             test(`test invalid login for ${testType}`,{ tag: '@invalidlogintest' }, async({page})=>{
 
         await   pomanager.getLoginPage().login(username,password);
         await  pomanager.getLoginPage().verifyinginvalidmessage();

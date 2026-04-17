@@ -9,6 +9,8 @@ export class Homepage {
 
     readonly admin_icon :Locator ;
 
+    readonly Myinfo_icon:Locator;
+
     //-------------------------------Variables-----------------------------------------------------------------
 
 
@@ -18,13 +20,20 @@ export class Homepage {
 
     this.page = page;
     this.admin_icon = this.page.locator('//span[text()="Admin"]');
+    this.Myinfo_icon = this.page.locator('//span[text()="My Info"]');
    }
 
 
     //--------------------------------Methods--------------------------------------------------------------------
+      
 
     //--------------------------------Actions----------------------------------------------------------------------
 
+    async openmyinfo(){
+
+        await this.page.waitForLoadState('networkidle');
+        await this.Myinfo_icon.click({timeout:100000});
+    }
     //---------------------------------Assertions-------------------------------------------------------------------
 
     async verifyadmin_iconisdisplayed(){

@@ -4,6 +4,8 @@ import { Loginpage } from "./loginpage";
 
 import { Homepage } from "./homepage";
 
+import { PersonalDetailsPage } from "./personaldetailspage";
+
 
 export class POManager {
 
@@ -13,6 +15,8 @@ export class POManager {
      private readonly page :Page ;
      private readonly loginpage: Loginpage ;
      private readonly homepage : Homepage ;
+
+     private readonly personaldetailspage : PersonalDetailsPage;
 
 
 
@@ -30,6 +34,7 @@ export class POManager {
         this.page = page ;
         this.loginpage = new Loginpage(this.page);
         this.homepage = new Homepage(this.page);
+        this.personaldetailspage = new PersonalDetailsPage(this.page);
 
 
     }
@@ -44,6 +49,12 @@ export class POManager {
     getHomePage(): Homepage {
 
         return this.homepage;
+    }
+
+    getPersonalDetailsPage():PersonalDetailsPage{
+
+        return this.personaldetailspage ;
+    
     }
 
 
