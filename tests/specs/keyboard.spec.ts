@@ -33,7 +33,7 @@ test('test select paragraph using keyboard action', async ({ page }) => {
 });
 
 
-test.only('test login and password using keyboard',async({page})=>{
+test('test login and password using keyboard',async({page})=>{
 
 await page.setViewportSize({ width: 1920, height: 1080 });
 await page.goto('https://practice.expandtesting.com/login');
