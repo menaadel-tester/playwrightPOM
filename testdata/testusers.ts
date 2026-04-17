@@ -8,6 +8,5 @@
     "middlename":"adel",
     "lastname":"makeen",
     "profilename":"mena makeen"
-
 }
 
